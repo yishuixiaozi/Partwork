@@ -38,7 +38,8 @@ public class HomeActivity extends AppCompatActivity {
         return this;
     }
 
-    /*这个注解的意思是不检测过期的方法，这样就过滤掉了很多不必要的检错内容*/
+    /*这个注解的意思是不检测过期的方法，
+    这样就过滤掉了很多不必要的检错内容*/
     @SuppressWarnings("deprecation")
     private void showSheetDialog(){
         View view=getLayoutInflater().inflate(R.layout.sp_photo_choose_dialog,null);
@@ -46,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
         final Dialog dialog=new Dialog(this,R.style.transparentFrameWindowStyle);
         dialog.setContentView(view,new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT));
-
+        //这里只是形成一个dialog供自己选择
         Window window=dialog.getWindow();
         window.setWindowAnimations(R.style.main_tab_bottom);
         WindowManager.LayoutParams wl = window.getAttributes();
