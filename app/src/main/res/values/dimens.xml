@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!--公共的一个布局内容-->
+    <dimen name="button_height">45.0dip</dimen>
+    <dimen name="bottom_tab_font_size">0.1dip</dimen>
+    <dimen name="bottom_tab_padding_up">2.0dip</dimen>
+    <dimen name="bottom_tab_padding_drawable">2.0dip</dimen>
+    <dimen name="switch_logo_bottom_padding">30.0sp</dimen>
+    <dimen name="nearby_location_tital">15.0sp</dimen>
+    <!--这里是菜单使用的分辨率-->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="tab_elevation">8dp</dimen>
+    <dimen name="tab_shadow_height">3dp</dimen>
+    <dimen name="tab_shadow_height_without_colored_background">4dp</dimen>
+    <dimen name="tab_min_width">104dp</dimen>
+    <dimen name="tab_max_width">168dp</dimen>
+    <dimen name="tab_height">56dp</dimen>
+    <dimen name="tab_line_width">1dp</dimen>
+    <dimen name="tab_icon">24dp</dimen>
+    <dimen name="tab_padding_top_active">3dp</dimen>
+    <dimen name="tab_padding_top_inactive">6dp</dimen>
+    <dimen name="tab_padding_top_inactive_without_text">16dp</dimen>
+    <dimen name="tab_padding_bottom">3dp</dimen>
+    <dimen name="tab_padding_left">12dp</dimen>
+    <dimen name="tab_padding_right">12dp</dimen>
+    <dimen name="tab_text_size_active">14sp</dimen>
+    <dimen name="tab_text_size_inactive">12sp</dimen>
+</resources>
