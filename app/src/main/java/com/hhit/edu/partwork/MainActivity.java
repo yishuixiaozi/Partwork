@@ -25,4 +25,8 @@ public class MainActivity extends AppCompatActivity {
     public void goUpload(View view){
         startActivity(new Intent(this,HomeActivity.class));
     }
+    /*去登陆界面*/
+    public void goYulan(View view){
+        startActivity(new Intent(this,PreviewActivity.class));
+    }
 }
