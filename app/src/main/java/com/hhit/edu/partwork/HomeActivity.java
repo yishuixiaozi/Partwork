@@ -101,20 +101,16 @@ public class HomeActivity extends AppCompatActivity {
                     return;
                 }else{
                     System.out.println("权限检查没有问题");
-                    Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);//创建启动相机意向
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {//版本兼容问题
-                        System.out.println("版本小");
+                    Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    /*sendBroadcast(openCameraIntent);*/
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {//目前是执行的这个
                         openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(SDPathUtils.getCachePath(), "temp.jpg")));
-                        /*startActivityForResult(openCameraIntent, 2);*///处理结果并且返回
                         startActivityForResult(openCameraIntent,2);
-                        System.out.println("结束");
-
                     } else {
-                        System.out.println("版本大");
                         Uri imageUri = FileProvider.getUriForFile(HomeActivity.this, "com.camera_photos.fileprovider", new File(SDPathUtils.getCachePath(), "temp.jpg"));
                         openCameraIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                        startActivityForResult(openCameraIntent, 2);//处理结果并且返回
+                        startActivityForResult(openCameraIntent, 2);
                     }
                 }
             }
@@ -125,7 +121,10 @@ public class HomeActivity extends AppCompatActivity {
         btnPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("点击的是从相册选择");
+                dialog.dismiss();
+                Intent intent=new Intent(Intent.ACTION_PICK,null);//创建行动
+                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,"image/*");
+                startActivityForResult(intent,1);//开启行动，并且处理结果内容
             }
         });
 
@@ -133,30 +132,30 @@ public class HomeActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("点击的是取消按钮");
+               dialog.dismiss();
             }
         });
 
     }
-
-    /*
-    拍照的结果进行处理的内容
+    /**
+     * 意向结果的处理
+     * @param requestCode
+     * @param resultCode
+     * @param data
      */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("已经到这里进行处理了");
         System.out.println("requestCode="+requestCode);
-        if (requestCode == 1 && data != null) {//这一步不执行
+        if (requestCode == 1 && data != null) {//这个是选取照片的
+            System.out.println("选择照片完毕");
             startPhotoZoom(data.getData());
-        } else if (requestCode == 2) {
+        } else if (requestCode == 2) {//这个是拍照的
             System.out.println("22");
             File temp = new File(SDPathUtils.getCachePath(), "temp.jpg");
             //temp =/storage/emulated/0/ZFCrash/cache/temp.jpg
             startPhotoZoom(Uri.fromFile(temp));
-        } else if (requestCode == 3) {//这也不执行
-            System.out.println("从截图过来");
-            if (data != null) {//截取的数据不为空
-                System.out.println("数据不为空");
+        } else if (requestCode == 3) {//这个是截图之后过来的
+            if (data != null) {
                setPicToView(data);
             }
         }

@@ -74,20 +74,16 @@ public class PreviewActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// 此处获取剪裁后的bitmap
-				System.out.println("点击了确认按钮");
 				degrees = 0;
 				Bitmap bitmap = imageView.clip();
 
 				// 由于Intent传递bitmap不能超过40k,此处使用二进制数组传递
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
-				System.out.println("this is safe now");
 				bitmap.compress(Bitmap.CompressFormat.JPEG, 90, baos);
-				System.out.println("1212121212");
 				byte[] bitmapByte = baos.toByteArray();
 
 				Intent intent = new Intent();
 				intent.putExtra("bitmap", bitmapByte);
-				System.out.println("324232323");
 				//调用setResult方法表示我将Intent对象返回给之前的那个Activity，这样就可以在onActivityResult方法中得到Intent对象，
 				setResult(3, intent);
 				
@@ -112,7 +108,7 @@ public class PreviewActivity extends Activity {
 	 * */
 	@SuppressWarnings("deprecation")
 	private void initBitmap() {
-		System.out.println("初始化的操作");
+		System.out.println("图片初始化的操作");
 		try {
 			ImageCompressUtils compress = new ImageCompressUtils();//压缩对象
 			ImageCompressUtils.CompressOptions options = new ImageCompressUtils.CompressOptions();

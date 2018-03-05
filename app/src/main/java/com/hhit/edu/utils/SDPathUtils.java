@@ -49,17 +49,20 @@ public class SDPathUtils {
      * 保存图片
      */
     public static void saveBitmap(Bitmap bm, String imgName) {
-        System.out.println("保存图片的内容");
+        System.out.println("保存图片开始");
         try {
             System.out.println("保存中的内容路径getCachePath"+getCachePath()+"imgName"+imgName);
             File f = new File(getCachePath(), imgName);
             if (f.exists()) {
+                System.out.println("文件是存在的，执行删除");
                 f.delete();
             }
             FileOutputStream out = new FileOutputStream(f);
             bm.compress(Bitmap.CompressFormat.JPEG, 100, out);
+            System.out.println("文件不存在压缩完成");
             out.flush();
             out.close();
+            System.out.println("文件应该上传完毕");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
