@@ -87,7 +87,6 @@ public class HomeActivity extends AppCompatActivity {
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("点击的是拍照");
                 dialog.dismiss();//销毁dialog，然后进入拍照的内容
                 //权限检查,如果权限不足，返回内容提示
                 if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
@@ -100,7 +99,6 @@ public class HomeActivity extends AppCompatActivity {
                     ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 222);
                     return;
                 }else{
-                    System.out.println("权限检查没有问题");
                     Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     /*sendBroadcast(openCameraIntent);*/
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {//目前是执行的这个
@@ -145,12 +143,9 @@ public class HomeActivity extends AppCompatActivity {
      */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("requestCode="+requestCode);
         if (requestCode == 1 && data != null) {//这个是选取照片的
-            System.out.println("选择照片完毕");
             startPhotoZoom(data.getData());
         } else if (requestCode == 2) {//这个是拍照的
-            System.out.println("22");
             File temp = new File(SDPathUtils.getCachePath(), "temp.jpg");
             //temp =/storage/emulated/0/ZFCrash/cache/temp.jpg
             startPhotoZoom(Uri.fromFile(temp));
@@ -167,7 +162,6 @@ public class HomeActivity extends AppCompatActivity {
      * @param uri
      */
     public void startPhotoZoom(Uri uri) {
-        System.out.println("开始截屏的处理");
         Intent intent = new Intent(getActivity(), PreviewActivity.class);
         intent.setDataAndType(uri, "image/*");
        /* System.out.println("uri="+uri);*/
@@ -188,7 +182,6 @@ public class HomeActivity extends AppCompatActivity {
         if (bitmap != null) {
             SDPathUtils.saveBitmap(bitmap, localImg);
             Log.e("本地图片绑定", SDPathUtils.getCachePath() + localImg);
-            System.out.println("本地图片绑定");
             setImageUrl(ivHeadLogo, "file:/" + SDPathUtils.getCachePath() + localImg, R.mipmap.head_logo);
 
         }
@@ -197,8 +190,7 @@ public class HomeActivity extends AppCompatActivity {
     /*private DisplayImageOptions options;*/
     private DisplayImageOptions options;
     public void setImageUrl(ImageView ivId, String imageUrl, int emptyImgId) {
-        if (options == null) {//这里用不到
-            System.out.println("应该走这里");
+        if (options == null) {//每次 创建对象
             options = new DisplayImageOptions.Builder()
                     .showImageOnLoading(emptyImgId)//图片下载期间显示图片
                     .showImageForEmptyUri(emptyImgId)//Uri错误显示的图片

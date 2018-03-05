@@ -32,7 +32,6 @@ public class PreviewActivity extends Activity {
 		//取消标题
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-			System.out.println("PreviewActivity  ");
 			//透明状态栏
 			getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
 			//透明导航栏
