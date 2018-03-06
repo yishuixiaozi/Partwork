@@ -29,4 +29,10 @@ public class MainActivity extends AppCompatActivity {
     public void goYulan(View view){
         startActivity(new Intent(this,PreviewActivity.class));
     }
+
+    /*去上下滑动界面*/
+    public void goGundong(View view){
+        startActivity(new Intent(this,UdmoveActivity.class));
+    }
+    /*去搜索界面*/
 }

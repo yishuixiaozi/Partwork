@@ -23,4 +23,10 @@
     <!-- 浅色字体颜色 -->
     <color name="text_color_light">#999999</color>
     <color name="text_color_light2">#acacac</color>
+    <!--搜索框样式设计样色-->
+    <color name="search_edit_gray">#ffcccccc</color>
+    <!--搜索框2设计颜色-->
+    <color name="colorDefault">#ffffff</color>
+    <color name="colorBackground">#f1f0f6</color>
+    <color name="colorText">#9b9b9b</color>
 </resources>

@@ -51,50 +51,30 @@
         <item name="android:paddingTop">@dimen/bottom_tab_padding_up</item>
         <item name="android:layout_weight">1.0</item>
     </style>
-    <style name="nearby_spinner_style">
-        <item name="android:layout_width">0.0dip</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@null</item>
-        <item name="android:layout_marginTop">6dip</item>
-        <item name="android:layout_weight">1.0</item>
-    </style>
-
-    <style name="sort_alllist_item_button_style">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@null</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:layout_marginTop">10dip</item>
-        <item name="android:layout_marginBottom">10dip</item>
-        <item name="android:layout_weight">1.0</item>
-        <item name="android:textSize">15.0sp</item>
-    </style>
-
-    <style name="some_used">
-        <item name="android:layout_marginTop">10dip</item>
-        <item name="android:layout_marginLeft">10dip</item>
-        <item name="android:layout_marginRight">10dip</item>
-        <item name="android:layout_marginBottom">10dip</item>
-    </style>
-
-    <style name="more_text_style">
-        <item name="android:textSize">15.0sp</item>
-        <item name="android:background">#00000000</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-    </style>
-    <style name="bus_info_text_style">
-        <item name="android:textColor">@android:color/white</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:textSize">12.0sp</item>
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_weight">1.0</item>
-        <item name="android:clickable">true</item>
-    </style>
     <!--<style name="bus_view">
         <item name="@android:windowEnterAnimation">@anim/in</item>
         <item name="@android:windowExitAnimation">@anim/out</item>
     </style>-->
+    <!--这里是搜索框的设计样式内容-->
+    <style name="editTextStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/search_edit_bg</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:drawableStart">@drawable/search_icon</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:imeOptions">actionSearch</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:hint">搜索</item>
+    </style>
+
+    <style name="textViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">20sp</item>
+    </style>
 
 </resources>
