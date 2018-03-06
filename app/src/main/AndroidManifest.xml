@@ -51,6 +51,7 @@
         <activity android:name=".HomeActivity" />
         <activity android:name=".PreviewActivity" />
         <activity android:name=".UdmoveActivity" />
+        <activity android:name=".SearchDemo"/>
     </application>
 
 </manifest>

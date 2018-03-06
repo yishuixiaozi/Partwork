@@ -35,4 +35,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this,UdmoveActivity.class));
     }
     /*去搜索界面*/
+    public void goSearch(View view){
+        System.out.println("这是搜索的内容");
+        startActivity(new Intent(this,SearchDemo.class));
+    }
 }
