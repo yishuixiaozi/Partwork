@@ -27,9 +27,7 @@ public class TabFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        System.out.println("创造一个视图然后返回");
         String title = getArguments().getString(FRAG_KEY);
-        System.out.println("测试title的值是什么东西"+title);
         View view = inflater.inflate(R.layout.fragment_menu_tab, null);
         assignViews(view);
         return view;

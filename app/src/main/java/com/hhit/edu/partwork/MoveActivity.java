@@ -2,17 +2,18 @@ package com.hhit.edu.partwork;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import com.hhit.edu.library.TabItem;
 import com.hhit.edu.library.XFragmentTabHost;
-public class MoveActivity extends AppCompatActivity {
+public class MoveActivity extends FragmentActivity {
     private XFragmentTabHost mTabHost;//创建分段标签栏对象
     String[] mTabTitle = new String[] {"首页", "软件", "游戏", "管理"};
     //获取菜单栏四个drawable对象ID
     int[] mImageResId = new int[] {R.drawable.sel_tab_home, R.drawable.sel_tab_app,
             R.drawable.sel_tab_game, R.drawable.sel_tab_mag};
     //创建class类名，后面有方法需要使用
-    Class[] mFragClass = new Class[] {TabFragment.class, TabFragment.class,
+    Class[] mFragClass = new Class[] {SearchTabFragment.class, TabFragment.class,
             TabFragment.class, TabFragment.class};
     @Override
     protected void onCreate(Bundle savedInstanceState) {

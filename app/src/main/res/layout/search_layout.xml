@@ -36,10 +36,12 @@
     </LinearLayout>
 
     <ScrollView
+        android:id="@+id/sv_searchlist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/ll_listlayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">

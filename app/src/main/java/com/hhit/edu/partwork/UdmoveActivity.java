@@ -3,10 +3,13 @@ package com.hhit.edu.partwork;
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.hhit.edu.view.EditText_Clear;
 import com.hhit.edu.view.ObservableScrollView;
 import com.hhit.edu.view.SearchView;
 
@@ -20,8 +23,12 @@ public class UdmoveActivity extends Activity
     private LinearLayout ll_topView;
     private TextView tv_topView;
     private LinearLayout ll_fixedView;
+    private LinearLayout ll_contentView;
+
+    private EditText_Clear et_Clear;
     //这里是尝试更改代码
     private SearchView searchView;
+
     //记录内层固定布局到屏幕顶部的距离
     private int mHeight;
 
@@ -35,10 +42,31 @@ public class UdmoveActivity extends Activity
         ll_topView= (LinearLayout) findViewById(R.id.ll_topView);
         tv_topView= (TextView) findViewById(R.id.tv_topView);
         ll_fixedView= (LinearLayout) findViewById(R.id.ll_fixedView);
+        //这个布局是用来后期去掉的
+        ll_contentView= (LinearLayout) findViewById(R.id.ll_contentView);
+        //这里是获得一个listview对象
         //滚动布局设置监听
-        //尝试
         searchView= (SearchView) findViewById(R.id.search_view);
-
+        //获取搜索框输入文本的对象
+        et_Clear= (EditText_Clear) searchView.findViewById(R.id.et_search);
+       /* et_Clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("搜索框位版本的点击事件");
+            }
+        });*/
+        et_Clear.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction()==MotionEvent.ACTION_DOWN){
+                    System.out.println("Udmove您出发了按下触摸事件");
+                    //sv_contentView.removeView(ll_contentView);//滑动布局去除里边所有布局
+                   /* sv_contentView.addView(ll_listlayout);*///加上这个布局看看效果
+                }
+                return false;
+            }
+        });
+        //尝试2
         sv_contentView.setOnObservableScrollViewScrollChanged(this);
     }
 
@@ -50,7 +78,13 @@ public class UdmoveActivity extends Activity
             /*mHeight=ll_topView.getTop();*/
             mHeight=ll_topView.getTop();//mHeight的大小就是固定线性布局顶部到屏幕顶部的距离
             System.out.println("mHeight的变量是"+mHeight);//这里是394
+            System.out.println("getTop获得的高度是"+getHeight());
         }
+    }
+
+    /*获得一个高度的问题*/
+    public  int getHeight(){
+        return ll_topView.getTop();
     }
     /**
      * 这里依然尝试修改

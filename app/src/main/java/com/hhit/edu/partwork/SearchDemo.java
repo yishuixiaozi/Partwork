@@ -1,6 +1,8 @@
 package com.hhit.edu.partwork;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.hhit.edu.view.ICallBack;
 import com.hhit.edu.view.SearchView;
@@ -33,8 +35,18 @@ public class SearchDemo extends AppCompatActivity {
         searchView.setOnClickBack(new bCallBack() {
             @Override
             public void BackAciton() {
-                finish();
+                System.out.println("返回的内容");
+                finish();//结束搜索
             }
         });
+        /*searchView.findViewById(R.id.et_search).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction()==MotionEvent.ACTION_DOWN){
+                    System.out.println("您出发了按下触摸事件");
+                }
+                return false;
+            }
+        });*/
     }
 }
